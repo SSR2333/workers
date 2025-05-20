@@ -1,12 +1,12 @@
-import yamlContent from "../.github/workflows.upbpb.yml";  // 如果支援 ES Modules
-// 或使用 fetch() 讀取（需先上傳到某處）
-
 export default {
   async fetch(request) {
-    // 讀取 YAML 內容
-    const yamlText = await fetch("https://your-repo-url/.github/workflows.upbpb.yml");
-    const yamlData = await yamlText.text();
-    
-    return new Response(`YAML 內容: ${yamlData}`);
+    // 從 GitHub 直接讀取 YAML 文件（需公開或使用 Token）
+    const yamlUrl = "https://raw.githubusercontent.com/你的用戶名/你的倉庫/main/.github/workflows.upbpb.yml";
+    const response = await fetch(yamlUrl);
+    const yamlText = await response.text();
+
+    return new Response(yamlText, {
+      headers: { "Content-Type": "text/plain" }
+    });
   }
 };
