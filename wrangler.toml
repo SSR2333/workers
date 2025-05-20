@@ -1,3 +1,6 @@
-name = "workers"  # 隨便取個名字
-main = ".github/workflows.upbpb.yml"  # 換成你的程式入口文件
-compatibility_date = "2025-05-20"  # 保持這樣或更新日期
+name = "workers"
+main = "src/index.js"
+compatibility_date = "2025-05-20"
+
+[build]
+command = "cp .github/workflows.upbpb.yml public/upbpb.yml && npm run build"
