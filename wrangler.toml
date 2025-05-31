@@ -1,3 +1,0 @@
-name = "network"
-main = "src/index.js"  # 改回標準入口
-compatibility_date = "2025-05-20"
